@@ -1,0 +1,44 @@
+.nav-glyphish-example .ui-btn .ui-btn-inner {
+    padding-top: 40px !important; 
+}
+
+.nav-glyphish-example .ui-btn .ui-icon { 
+    width: 45px!important; 
+    height: 35px!important; 
+    margin-left: -24px !important; 
+    box-shadow: none!important; 
+    -moz-box-shadow: none!important; 
+    -webkit-box-shadow: none!important;
+    -webkit-border-radius: none !important;
+    border-radius: none !important; 
+}
+
+#favorite .ui-icon { 
+    background-image: url(http://glyphish.com/images/demo.png);
+    background-position: -345px -112px;
+    background-repeat: no-repeat;
+}
+
+#recent .ui-icon { 
+    background-image: url(http://glyphish.com/images/demo.png);
+    background-position: -9px -61px;
+    background-repeat: no-repeat; 
+}
+
+#contacts .ui-icon { 
+    background-image: url(http://glyphish.com/images/demo.png);
+    background-position: -9px -540px;
+    background-repeat: no-repeat; 
+}
+
+#keypad .ui-icon { 
+    background-image: url(http://glyphish.com/images/demo.png);
+    background-position: -9px -783px;
+    background-repeat: no-repeat; 
+}
+
+#voicemail .ui-icon { 
+    background-image: url(http://glyphish.com/images/demo.png);
+    background-position: -394px -733px;
+    background-repeat: no-repeat; 
+}
