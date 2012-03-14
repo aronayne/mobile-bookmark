@@ -9,6 +9,30 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.js"></script>
 
+<script type="text/javascript">
+
+    function addUrlAjax() {
+
+      $.ajax({
+        url: 'addUrl',
+        data: ({urlVal : $('#urlVal').val()}),
+        success: function(data) {
+     	$('#myTD').remove();
+
+		$('#example').dataTable().fnAddData( [
+		                             		    data,
+		                             		    "t",
+		                             		    "t",
+		                             		    "t",
+		                             		    "t"]
+		                             		  );   
+		  
+        }
+      });
+    }
+    
+  </script>
+  
 </head>
 
 <body>
@@ -27,10 +51,15 @@
 <div id="page-1" data-role="page">
     <div data-role="header">
         <a href="#" data-icon="arrow-l" data-iconpos="left" data-rel="back" data-transition="slide" data-direction="reverse">Back</a>
-        <h1>Page 1</h1>
+        <h1>View Bookmarks</h1>
     </div>
     <div data-role="content">
         <p>Page 1 content</p>
+                <ul data-role="listview" data-theme="g">
+	<li><a href="acura.html">Acura</a></li>
+	<li><a href="audi.html">Audi</a></li>
+	<li><a href="bmw.html">BMW</a></li>
+</ul>
     </div>
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
@@ -46,10 +75,14 @@
 <div id="page-2" data-role="page">
     <div data-role="header">
         <a href="#" data-icon="arrow-l" data-iconpos="left" data-rel="back" data-transition="slide" data-direction="reverse">Back</a>
-        <h1>Page 2</h1>
+        <h1>Add Bookmark</h1>
     </div>
     <div data-role="content">
         <p>Page 2 content</p>
+<div data-role="fieldcontain">
+<label for="name">Text Input:</label>
+<input type="text" name="name" id="name" value="" />
+</div>
     </div>
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
