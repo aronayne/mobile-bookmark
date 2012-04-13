@@ -27,11 +27,9 @@
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="page1.jsp" data-role="tab" data-icon="grid" class="ui-btn-active">Page 1</a></li>
-                <li><a href="page2.jsp" data-role="tab" data-icon="grid">Page 2</a></li>
-                <li><a href="#page-3" data-role="tab" data-icon="grid">Page 3</a></li>
-            </ul>
-        </div>
+                 <li><a href="/page1" data-role="tab" data-icon="grid">Page 1</a></li>
+                <li><a href="/page2" data-role="tab" data-icon="grid" class="ui-btn-active">Page 2</a></li>
+                <li><a href="/page3" data-role="tab" data-icon="grid">Page 3</a></li>        </div>
     </div>
 </div>
     </body>

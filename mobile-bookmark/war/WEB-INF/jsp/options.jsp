@@ -8,31 +8,6 @@
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.js"></script>
-
-<script type="text/javascript">
-
-    function addUrlAjax() {
-
-      $.ajax({
-        url: 'addUrl',
-        data: ({urlVal : $('#urlVal').val()}),
-        success: function(data) {
-     	$('#myTD').remove();
-
-		$('#example').dataTable().fnAddData( [
-		                             		    data,
-		                             		    "t",
-		                             		    "t",
-		                             		    "t",
-		                             		    "t"]
-		                             		  );   
-		  
-        }
-      });
-    }
-    
-  </script>
-  
 </head>
 
 <body>
@@ -112,7 +87,7 @@
             </ul>
         </div>
     </div>
-</div>​
+</div>?
 
 </body>
 </html>
