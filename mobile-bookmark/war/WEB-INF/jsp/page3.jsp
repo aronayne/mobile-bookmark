@@ -27,9 +27,9 @@
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="/page1" data-role="tab" data-icon="grid">Page 1</a></li>
-                <li><a href="/page2" data-role="tab" data-icon="grid" class="ui-btn-active">Page 2</a></li>
-                <li><a href="/page3" data-role="tab" data-icon="grid">Page 3</a></li>
+                <li><a href="/page1" data-role="tab" data-icon="grid">View</a></li>
+                <li><a href="/page2" data-role="tab" data-icon="grid">Add</a></li>
+                <li><a href="/page3" data-role="tab" data-icon="grid" class="ui-btn-active">Edit</a></li>
             </ul>
         </div>
     </div>
