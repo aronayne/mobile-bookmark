@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class PageThreeController {
+public class EditController {
 
-	  @RequestMapping("/page3")
+	  @RequestMapping("/edit")
 	  public ModelAndView helloWorld() {
-	    return new ModelAndView("page3", "message", "");
+	    return new ModelAndView("edit", "message", "");
 	  }
 	  
 }

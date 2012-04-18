@@ -5,3 +5,6 @@ Feature : include bookmarks to include important pages/chapters/groups of pages
 becomes a highlighter????
 
 For some reason when deploying locally the app does'nt scroll vertically correctly
+
+Set various values before setting BookmarkDetails object
+

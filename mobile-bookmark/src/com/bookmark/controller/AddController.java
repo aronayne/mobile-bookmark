@@ -20,42 +20,47 @@ import com.google.appengine.api.datastore.Text;
 import com.google.gson.Gson;
 
 @Controller
-public class PageTwoController {
+public class AddController {
 
-	private Text datastoreJsonString = new Text("{ nodes:[ ] }");
-	private static final String KEY_NAME = "TESTER";
-	
-	  @RequestMapping("/page2")
+	@RequestMapping("/add")
 	  public ModelAndView helloWorld() {
-	    return new ModelAndView("page2", "message", "");
+	    return new ModelAndView("add", "message", "");
 	  }
 	  
 	  @RequestMapping(value = ControllerServletConstants.ADD_BOOKMARK, method = RequestMethod.GET)
 	  public @ResponseBody String getUrl(@RequestParam String urlVal, @RequestParam String date) throws EntityNotFoundException {		
-	    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+	    DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
 
-	    String currentJson = this.getUrlJson();
+	    String currentJson = this.getJsonFromStore();
 	    BookmarkNodes bookmarkNodes = new Gson().fromJson(currentJson, BookmarkNodes.class);
 	    BookmarkDetails bookmarkDetails = new BookmarkDetailsImpl();
 	    bookmarkNodes.getNodes().add(bookmarkDetails);
 
-	    datastoreJsonString = new Text(new Gson().toJson(bookmarkNodes));
-	    Entity urlEntity = new Entity("json" , KEY_NAME);
-	    urlEntity.setProperty("urlVal", datastoreJsonString);
+	    Text datastoreJsonString = new Text(new Gson().toJson(bookmarkNodes));
+	    Entity urlEntity = new Entity(ControllerServletConstants.KEY_KIND , ControllerServletConstants.KEY_NAME);
+	    urlEntity.setProperty(ControllerServletConstants.JSON_BOOKMARK_VALUE, datastoreJsonString);
 	  
-	    datastore.put(urlEntity);   
+	    datastoreService.put(urlEntity);   
 	    
 	    return urlVal;
 	  }
 
-	  private String getUrlJson() throws EntityNotFoundException{
-		    Key key = KeyFactory.createKey("json", KEY_NAME);
+	  private String getJsonFromStore() throws EntityNotFoundException{
+		    Key key = KeyFactory.createKey(ControllerServletConstants.KEY_KIND, ControllerServletConstants.KEY_NAME);
 		    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		    
 		    Entity entity = datastore.get(key);
-		    Text urlValInDB = (Text)entity.getProperty("urlVal");
+		    Text urlValInDB = (Text)entity.getProperty(ControllerServletConstants.JSON_BOOKMARK_VALUE);
 		    
-		    return urlValInDB.getValue();
+		    /**
+		     * If this is the first bookmark being added, setup the json string
+		     */
+		    if(!urlValInDB.getValue().equalsIgnoreCase("{ nodes:[ ] }")){
+		    	return "{ nodes:[ ] }";
+		    }
+		    else {
+		    	return urlValInDB.getValue();
+		    }
 	  }
 	  
 }
